@@ -1,1 +1,1 @@
-({"result":true,"message":"ooops"})
+{"result":true,"message":"ooops"}

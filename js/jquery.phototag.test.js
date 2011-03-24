@@ -94,7 +94,7 @@
 		var cache = {
 			tags: {}
 		};
-				
+			
 		var options = $.extend(true,defaultOptions,options);
 			
 		var getValueFromClassWithPrefix = function( element, prefix ){
@@ -228,12 +228,11 @@
 					$('#tempNewTagForm').append(input);
 				if(properties.isAutocomplete){
 					$('#tempInput_'+i).parent().append($('<input name="'+properties.parameterKey+'_id" id="hidden_tempInput_'+i+'" type="hidden"/>'));
-					$('#tempInput_'+i).autocomplete(properties.autocompleteUrl,{
-						formatItem: properties.formatAutocompleteResponse
-					});
-					$('#tempInput_'+i).result(function(event,data,formatted){
-						if(data)
-							$('#hidden_tempInput_'+i).val(data[1]);
+					$('#tempInput_'+i).autocomplete({
+						source:properties.autocompleteUrl,
+						select: function( event, ui){
+							$('#hidden_tempInput_'+i).val(ui.item.id);
+						}
 					});
 				}
 			});

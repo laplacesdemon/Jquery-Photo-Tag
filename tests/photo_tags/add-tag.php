@@ -1,4 +1,4 @@
-({
+{
 	"result":true,
 	"tag": {
 		"id":800,
@@ -10,4 +10,4 @@
 		"url": "person.php?id=800",
 		"isDeleteEnable": true
 	}
-})
+}

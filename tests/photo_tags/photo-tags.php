@@ -1,4 +1,4 @@
-({
+{
 	"Image" : [
 		{
 		"id":150,
@@ -39,5 +39,4 @@
 			"flashAfterCreation": true
 		}
 	}
-
-})
+}
