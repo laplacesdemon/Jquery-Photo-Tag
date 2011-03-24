@@ -1,5 +1,5 @@
 /*
- * jQuery PhotoTag plugin 0.8
+ * jQuery PhotoTag plugin 1.0a
  *
  * Copyright (c) 2010 Karl Mendes
  * http://karlmendes.com
