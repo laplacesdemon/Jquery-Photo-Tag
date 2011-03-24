@@ -69,7 +69,7 @@
 				tagListIdPrefix: 'photoTag-taglist_',
 				tagListRemoveItemIdPrefix: 'photoTag-removeTag',
 				canvasIdPrefix: 'photoTag-canvas_',
-				controlPanelHeight: 25,
+				controlPanelHeight: 25
 			},
 			showAddTagLinks: true,
 			externalAddTagLinks: {
