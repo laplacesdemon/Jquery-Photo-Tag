@@ -38,6 +38,8 @@
 			},
 			literals:{
 				communicationProblem: 'Communication problem, your changes could not be saved',
+				saveTag: 'Ok',
+				cancelTag: 'Cancel',
 				addNewTag: 'Add new tag',
 				removeTag: 'Remove tag'
 			},
@@ -226,11 +228,11 @@
 					});
 				}
 			});
-			var submit = $('<input class="inputSubmit" type="submit" value="Ok" />');
+			var submit = $('<input class="inputSubmit" type="submit" value="' + options.literals.saveTag + '" />');
 			$('#tempNewTagForm').append(submit);
 			var hiddenInput = $("<input type='hidden' name='image_id' value ='" + image_id + "' />");
 			$('#tempNewTagForm').append(hiddenInput);
-			var cancel = $('<input class="inputCancel" type="button" value="Cancel"/>');
+			var cancel = $('<input class="inputCancel" type="button" value="' + options.literals.cancelTag + '"/>');
 			cancel.click(function(e){
 				e.preventDefault();
 				removeNewTempTag();
