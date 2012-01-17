@@ -1,7 +1,7 @@
 /*
- * jQuery PhotoTag plugin 1.2a 
+ * jQuery PhotoTag plugin 1.3
  *
- * Copyright (c) 2010 Karl Mendes
+ * Copyright (c) 2012 Karl Mendes
  * http://karlmendes.com
  *
  * Dual licensed under the MIT and GPL licenses:
@@ -15,27 +15,18 @@
 	$.fn.photoTag = function( options ){
 		
 		var defaultOptions = {
-			requesTagstUrl: '/static/photo-tag/tests/photo_tags/photo-tags.php',
-			deleteTagsUrl: '/static/photo-tag/tests/photo_tags/delete.php',
-			addTagUrl: '/static/photo-tag/tests/photo_tags/add-tag.php',
+			requesTagstUrl: 'photo-tags.php',
+			deleteTagsUrl: 'delete.php',
+			addTagUrl: 'add-tag.php',
 			parametersForNewTag: {
 				name: {
 					parameterKey: 'name',
 					isAutocomplete: true,
-					autocompleteUrl: '/static/photo-tag/tests/photo_tags/names.php',
+					autocompleteUrl: 'names.php',
 					label: 'Name'					
 				}
 			},
-			parametersForRequest : {
-				imageId : {
-					classNamePrefix : 'imageId_',
-					parameterKey : 'image-id'
-				},
-				albumId : {
-					classNamePrefix : 'albumId_',
-					parameterKey : 'album-id'
-				}
-			},
+			parametersForRequest : ['image-id','album-id'],
 			literals:{
 				communicationProblem: 'Communication problem, your changes could not be saved',
 				saveTag: 'Ok',
@@ -88,28 +79,17 @@
 		};
 			
 		var options = $.extend(true,defaultOptions,options);
-			
-		var getValueFromClassWithPrefix = function( element, prefix ){
-			var value = null;
-			if( element.attr('class') ){
-				var classNames = element.attr('class').split(' ');
-				$.each(classNames,function(){
-					if(this.indexOf(prefix) != -1){
-						value = this.substring(this.indexOf(prefix) + prefix.length);
-						return false;
-					}
-				})
-			}
-			return value;
-		};
 		
 		var getParametersForImage = function( imageElement ){
 			var parameters = {};
-			$.each(options.parametersForRequest,function( i, properties){
-				var parameterValue = getValueFromClassWithPrefix( imageElement, properties.classNamePrefix );
+			$.each(options.parametersForRequest,function( i, key){
+				var parameterValue = imageElement.attr('data-'+key);
 				if(parameterValue)
-					parameters[properties.parameterKey] = parameterValue;
+					parameters[key] = parameterValue;
 			});
+			//TODO: lskdj;
+			//alert("sdf")
+			console.dir(parameters);
 			return parameters;
 		};
 		
