@@ -1,0 +1,29 @@
+Demo and unit testing: tests/photo_tags/index.html
+
+
+1. Reference css and javascript files:
+<link media="screen" type="text/css" href="/static/photo-tag/libraries/jquery-ui-1.8.11.custom.css" rel="stylesheet">
+<link media="screen" type="text/css" href="/static/photo-tag/tests/photo_tags/styles2.css" rel="stylesheet">
+<script type="text/javascript" src="/static/photo-tag/libraries/jquery.dev.1.5.1.js"></script>
+<script type="text/javascript" src="/static/photo-tag/libraries/jquery.ui.1.8.11.js"></script>
+<script type="text/javascript" src="/static/photo-tag/js/jquery.phototag.js?ver=1"></script>
+
+2. Call the photo tag plguin on load:
+$(document).ready(function(){
+	$('.photoTag').photoTag({
+		requesTagstUrl: '/static/photo-tag/tests/photo_tags/photo-tags.php',
+		deleteTagsUrl: '/static/photo-tag/tests/photo_tags/delete.php',
+		addTagUrl: '/static/photo-tag/tests/photo_tags/add-tag.php',
+		parametersForNewTag: {
+			name: {
+				parameterKey: 'name',
+				isAutocomplete: true,
+				autocompleteUrl: '/static/photo-tag/tests/photo_tags/names.php',
+				label: 'Name'
+			}
+		}
+	});
+});
+
+3. Add the image
+<img src="http://karlmendes.com/static/photo-tag/tests/photo_tags/monkeys2.jpg" class="photoTag userId_25 imageId_200 albumId_200">
