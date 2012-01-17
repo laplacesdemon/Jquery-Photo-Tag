@@ -87,9 +87,6 @@
 				if(parameterValue)
 					parameters[key] = parameterValue;
 			});
-			//TODO: lskdj;
-			//alert("sdf")
-			console.dir(parameters);
 			return parameters;
 		};
 		
