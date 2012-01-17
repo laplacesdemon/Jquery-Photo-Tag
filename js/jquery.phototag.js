@@ -93,10 +93,16 @@
 		var registerEventsForTagBox = function( tagBox ){
 			tagBox.mouseover(
 				function(){
-					$(this).stop().animate({ opacity: 1.0 }, 500);
+					if(!$.browser.msie)
+						$(this).stop().animate({ opacity: 1.0 }, 500);
+					else
+						$(this).css({ opacity: 1.0 });
 				}).mouseout(
 				function(){
-					$(this).stop().animate({ opacity: 0.0 }, 500);
+					if(!$.browser.msie)
+						$(this).stop().animate({ opacity: 0.0 }, 500);
+					else
+						$(this).css({ opacity: 0.0 });
 			});
 
 		};
@@ -355,7 +361,10 @@
 		var extendTagBoxAttributes = function( tagBox, tagJSON, image, image_id ){
 			if(options.tag.flashAfterCreation){
 				$(tagBox).css({'opacity':1.0});
-				$(tagBox).stop().animate({ opacity: 0.0 }, 800);
+				if(!$.browser.msie)
+					$(tagBox).stop().animate({ opacity: 0.0 }, 800);
+				else
+					$(tagBox).css({ opacity: 0.0 });
 			};
 			if(options.imageWrapBox.showTagList){
 				var tagItemForList = createTagItemForList(tagJSON,image);

@@ -34,6 +34,15 @@ a{color: #528CE0;text-decoration: none;}
 .photoTag-tag{
 	border: 3px #3476CE solid;
 	opacity: 0.8;
+	/* Fallback for web browsers that don't support RGBa */
+	background-color: transparent;
+	/* RGBa with 0.6 opacity */
+	background-color: rgba(255, 255, 255, 0.1);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000099, endColorstr=#00000099);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000099, endColorstr=#00000099)";
+	overflow: visible;
 }
 .photoTag-tag .photoTag-delete {
 	background:url(x2.png) no-repeat; 
