@@ -103,7 +103,7 @@
 		
 		var manageError = function( response ){
 			if( $.isFunction(options.manageError) )
-				response.manageError(response);
+				options.manageError(response);
 			else{
 				if(response.message)
 					alert(response.message);
