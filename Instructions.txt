@@ -2,11 +2,13 @@ Demo and unit testing: tests/photo_tags/index.html
 
 
 1. Reference css and javascript files:
-<link media="screen" type="text/css" href="/static/photo-tag/libraries/jquery-ui-1.8.11.custom.css" rel="stylesheet">
-<link media="screen" type="text/css" href="/static/photo-tag/tests/photo_tags/styles2.css" rel="stylesheet">
-<script type="text/javascript" src="/static/photo-tag/libraries/jquery.dev.1.5.1.js"></script>
-<script type="text/javascript" src="/static/photo-tag/libraries/jquery.ui.1.8.11.js"></script>
-<script type="text/javascript" src="/static/photo-tag/js/jquery.phototag.js?ver=1"></script>
+
+<script src="../../libraries/jquery.dev.1.7.1.js" type="text/javascript"></script>
+<script src="../../libraries/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.phototag.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../libraries/jquery-ui-1.8.17.custom.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="styles2.css" type="text/css" media="screen" />
 
 2. Call the photo tag plguin on load:
 $(document).ready(function(){
@@ -26,4 +28,4 @@ $(document).ready(function(){
 });
 
 3. Add the image
-<img src="http://karlmendes.com/static/photo-tag/tests/photo_tags/monkeys2.jpg" class="photoTag userId_25 imageId_200 albumId_200">
+<img src="http://karlmendes.com/static/photo-tag/tests/photo_tags/monkeys2.jpg" class="photoTag" data-user-id="25" data-image-id="200" data-album-id="200">
