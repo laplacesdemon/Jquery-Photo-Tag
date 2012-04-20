@@ -71,7 +71,8 @@
 			},
 			isEnabledToEditTags: true,
 			manageError: 'internal function, user can bind a new one. function(response)',
-			beforeTagRequest: 'bind by user, function( parameters )'
+			beforeTagRequest: 'bind by user, function( parameters )',
+			afterTagRequest: 'bind by user, function( parameters, image )'
 		};
 		
 		var cache = {
@@ -403,6 +404,11 @@
 						}
 						$.each(response.Image,function(){
 							prepareImage(this,$this);
+
+							// callback after initialization
+							if($.isFunction(options.afterTagRequest)) {
+                                options.afterTagRequest(parameters, $this);
+                            }
 						});
 					}
 				);
